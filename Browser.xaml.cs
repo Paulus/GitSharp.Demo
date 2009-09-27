@@ -40,6 +40,7 @@ namespace GitSharp.Demo
         {
             var url = m_url_textbox.Text;
             var repo = Repository.Open(url);
+            m_history_graph.Repository = repo;
             var head = repo.OpenCommit(repo.Head.ObjectId) as Commit;
             m_repository = repo;
             var tags = repo.getTags().Values.Select(@ref => repo.MapTag(@ref.Name, @ref.ObjectId));
